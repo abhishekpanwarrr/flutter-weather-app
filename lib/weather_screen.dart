@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -19,7 +21,68 @@ class WeatherScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Column(),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            //TODO: main card
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            '300°F',
+                            style: TextStyle(
+                                fontSize: 32, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Icon(
+                            Icons.cloud,
+                            size: 64,
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            "Rain",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            // TODO: Weather forecast card
+            Placeholder(
+              fallbackHeight: 150,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            // TODO: Additional card card
+          ],
+        ),
+      ),
     );
   }
 }
