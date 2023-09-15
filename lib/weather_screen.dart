@@ -50,6 +50,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
+            tooltip: 'Refresh',
             onPressed: () {
               setState(() {
                 weather = getCurrentWeather();
